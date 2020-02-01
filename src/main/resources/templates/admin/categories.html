@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="layout/adminlayout :: adminheader"></div>
+
+    <div class="container">
+
+        <div class="table-responsive">
+            <table class="table mt-5">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cat :${categories}">
+                    <td th:text="${cat.id}"></td>
+                    <td th:text="${cat.name}"></td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+<div th:replace="layout/adminlayout :: adminscript"></div>
+</body>
+</html>

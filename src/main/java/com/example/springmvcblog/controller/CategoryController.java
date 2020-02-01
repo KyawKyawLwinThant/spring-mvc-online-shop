@@ -21,15 +21,20 @@ public class CategoryController {
     @GetMapping("/category")
     public String create(Model model){
         model.addAttribute("category",new Category());
-        return "admin/adminForm";
+        return "admin/categoryForm";
     }
 
     @PostMapping("/category")
     public String process(@Valid Category category, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/adminForm";
+            return "admin/categoryForm";
         }
         categoryService.create(category);
         return "redirect:/categories";
+    }
+    @GetMapping("/categories")
+    public String showAllCategories(Model model){
+        model.addAttribute("categories",categoryService.findAll());
+        return "admin/categories";
     }
 }
