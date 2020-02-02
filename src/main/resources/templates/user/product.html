@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="layout/userlayout :: userheader"></div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2">
+                    <i class="fas fa-shopping-cart fa-2x"></i>
+                    <span class="ml-3" th:text="${cartSize}"></span>
+
+                </div>
+
+
+
+
+            </div>
+            <div class="row mt-3">
+
+                <div class="col-sm-8">
+                    <img src="../static/images/"
+                         class="img-thumbnail"
+                         th:src="@{'/images/'+ ${product.name}+'.jpg'}" alt="">
+                </div>
+
+                <div class="col-sm-4">
+
+                    <h3 class="text-center text-success" th:text="${product.name}"></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at consectetur corporis dolor eos error id nobis, quasi quibusdam repellat sunt unde veniam. Cupiditate ea eaque libero omnis sit. Culpa?</p>
+                     <p th:text="${product.price + ' $'}"></p>
+                    <p th:text="${product.quantity + ' items'}"></p>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <a class="btn btn-primary my-5 mr-3"
+                   th:href="@{/home}">Continue Shopping</a>
+                <a class="btn btn-primary my-5"
+                th:href="@{'/cart/add/'+ ${product.id}}">Add to Cart</a>
+            </div>
+
+        </div>
+
+        <script src="https://kit.fontawesome.com/9fc0bb8e8a.js"
+        crossorigin="anonymous"></script>
+
+
+        <!--<div th:replace="layout/userlayout :: userfooter"></div> -->
+<div th:replace="layout/userlayout :: userscript"></div>
+</body>
+</html>
