@@ -13,11 +13,22 @@ public class Products {
     private String name;
     private int quantity;
     private double price;
+    @Transient
+    private int cartItemQuantity;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate lastUpdated;
 
     @ManyToOne
     private Category category;
+
+    public int getCartItemQuantity() {
+        return cartItemQuantity;
+    }
+
+    public void setCartItemQuantity(int cartItemQuantity) {
+        this.cartItemQuantity = cartItemQuantity;
+    }
 
     public Integer getId() {
         return id;

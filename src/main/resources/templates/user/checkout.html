@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="layout/userlayout :: userheader"></div>
+
+<div class="container">
+<div class="table-responsive">
+    <form th:action="@{/cart/calculate}" th:object="${cart}" method="post">
+    <table class="table my-5">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pro : ${products}">
+            <td th:text="${pro.name}"></td>
+            <td> <input type="text" th:field="*{buyItemsQuantity}" class="form-control"> </td>
+            <td th:text="${pro.price}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</div>
+
+<script src="https://kit.fontawesome.com/9fc0bb8e8a.js"
+        crossorigin="anonymous"></script>
+
+
+<!--<div th:replace="layout/userlayout :: userfooter"></div> -->
+<div th:replace="layout/userlayout :: userscript"></div>
+</body>
